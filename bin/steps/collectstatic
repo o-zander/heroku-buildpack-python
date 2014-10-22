@@ -20,7 +20,7 @@ if [ ! "$DISABLE_COLLECTSTATIC" ] && [ -f "$MANAGE_FILE" ]; then
     if [ "$RUN_COLLECTSTATIC" ]; then
 
         echo "       Running collectstatic..."
-        node_path="$(which node)"
+        find / -name node
         echo "       node path: $node_path" 
         python $MANAGE_FILE collectstatic --noinput  2>&1 | sed '/^Copying/d;/^$/d;/^ /d' | indent
 
